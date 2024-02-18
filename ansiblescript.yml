@@ -1,0 +1,16 @@
+---
+- name: Install Apache on one machine and Nginx on another machine
+  hosts: web_servers
+  become: true
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        update_cache: yes
+      when: inventory_hostname == "your_apache_instance_public_ip"
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        update_cache: yes
+      when: inventory_hostname == "your_nginx_instance_public_ip"
