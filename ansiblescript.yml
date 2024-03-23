@@ -3,7 +3,7 @@
   hosts: web_servers
   become: true
   tasks:
-    - name: Install Apache
+    - name: Install ApachE
       apt:
         name: apache2
         update_cache: yes
